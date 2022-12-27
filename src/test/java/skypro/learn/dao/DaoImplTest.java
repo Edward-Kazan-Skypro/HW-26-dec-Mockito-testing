@@ -4,8 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import skypro.learn.model.User;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 class DaoImplTest {
 
@@ -16,6 +15,7 @@ class DaoImplTest {
     @DisplayName("Проверка работы метода по поиску существующего пользователя по имени")
     void getExistsUserByName() {
         assertNotNull(new DaoImpl().getUserByName(correctUser.getName()));
+        assertEquals("Tom", new DaoImpl().getUserByName(correctUser.getName()).getName());
     }
 
     @Test
@@ -23,5 +23,4 @@ class DaoImplTest {
     void getNonExistsUserByName() {
         assertNull(new DaoImpl().getUserByName(wrongUser.getName()));
     }
-
 }
