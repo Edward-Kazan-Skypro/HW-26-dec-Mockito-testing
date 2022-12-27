@@ -2,7 +2,7 @@ package skypro.learn;
 
 import skypro.learn.dao.DaoImpl;
 import skypro.learn.model.User;
-import skypro.learn.service.UserService;
+import skypro.learn.service.UserServiceImpl;
 
 public class Main {
 
@@ -15,14 +15,11 @@ public class Main {
         System.out.println(new DaoImpl().getAll());
 
         //Проверим наличие существующего пользователя
-        System.out.println(new UserService(userDaoImpl).checkUserExist(userDaoImpl.getUserByName("Tom")));
+        System.out.println(new UserServiceImpl(userDaoImpl).checkUserExist(userDaoImpl.getUserByName("Tom")));
 
         //Создадим нового пользователя, не добавляя его в список
         User wrongUser = new User("Bob", 66);
         //Проверим его наличие
-        System.out.println(new UserService(userDaoImpl).checkUserExist(wrongUser));
-
-
-
+        System.out.println(new UserServiceImpl(userDaoImpl).checkUserExist(wrongUser));
     }
 }
