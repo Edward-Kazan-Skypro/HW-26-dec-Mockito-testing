@@ -1,5 +1,7 @@
 package skypro.learn.model;
 
+import java.util.Objects;
+
 public class User {
 
     private String name;
@@ -29,5 +31,17 @@ public class User {
     @Override
     public String toString() {
         return "User - имя: " + name + ", возраст: " + age;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof User user)) return false;
+        return getAge() == user.getAge() && getName().equals(user.getName());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getName(), getAge());
     }
 }

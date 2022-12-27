@@ -1,9 +1,9 @@
 package skypro.learn.dao;
 
 import java.util.List;
-public interface Dao<T> {
+public interface Dao<User> {
 
-    T getUserByName(String name);
+    User getUserByName(String name);
 
-    List<T> getAll();
+    List<User> getAll();
 }
